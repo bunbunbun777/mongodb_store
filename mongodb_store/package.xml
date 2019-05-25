@@ -24,7 +24,8 @@
   <build_depend>python-catkin-pkg</build_depend>
   <build_depend>mongodb</build_depend>
   <!--this needs to get merged into rosdistro (PR sent)-->
-  <!--build_depend>libmongoclient-dev</build_depend-->
+  <build_depend>libmongoclient-dev</build_depend>
+  <build_depend>mongodb-dev</build_depend>
   <build_depend>libssl-dev</build_depend> 
   <build_depend>topic_tools</build_depend>
  
