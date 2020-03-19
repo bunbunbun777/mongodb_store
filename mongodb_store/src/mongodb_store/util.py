@@ -1,22 +1,17 @@
+import importlib
+from datetime import datetime
+from io import BytesIO
+import json
+
+from pymongo.errors import ConnectionFailure
+from bson import json_util, Binary
+
 import rospy
 import genpy
 from std_srvs.srv import Empty
-import yaml
-from bson import json_util, Binary
-import json
 
-import copy
-try:
-    from StringIO import StringIO
-except ImportError:
-    from io import StringIO
 from mongodb_store_msgs.msg import SerialisedMessage
 from mongodb_store_msgs.srv import MongoQueryMsgRequest
-
-from pymongo.errors import ConnectionFailure
-
-import importlib
-from datetime import datetime
 
 def check_connection_to_mongod(db_host, db_port):
     """
@@ -504,7 +499,7 @@ def serialise_message(message):
     :Returns:
         | mongodb_store_msgs.msg.SerialisedMessage: A serialies copy of message
     """
-    buf=StringIO.StringIO()
+    buf = BytesIO()
     message.serialize(buf)
     serialised_msg = SerialisedMessage()
     serialised_msg.msg = buf.getvalue()
