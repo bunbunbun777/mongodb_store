@@ -279,8 +279,8 @@ class MessageStoreProxy(object):
             messages = []
             metas = []
         else:
-            messages = map(dc_util.deserialise_message, response.messages)
-            metas = map(dc_util.string_pair_list_to_dictionary, response.metas)
+            messages = list(map(dc_util.deserialise_message, response.messages))
+            metas = list(map(dc_util.string_pair_list_to_dictionary, response.metas))
 
         if single:
             if len(messages) > 0:
