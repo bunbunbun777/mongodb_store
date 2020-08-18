@@ -288,4 +288,4 @@ class MessageStoreProxy(object):
             else:
                 return [None, None]
         else:
-            return zip(messages,metas)
+            return [messages, metas]
